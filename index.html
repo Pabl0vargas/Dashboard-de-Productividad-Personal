@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard de Productividad Personal</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="ruta" type="image/x-icon">
+  </head>
+  <body>
+    <header>
+      <h1>Dashboard de Productividad Personal</h1>
+      <p id="saludo">Hola, bienvenid@</p>
+      <button id="btnSaludo">Mostrar saludo</button>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Contador de tareas</h2>
+        <p>Tareas completadas: <span id="contador">0</span></p>
+        <button id="btnContador">Sumar</button>
+      </section>
+
+      <section class="card">
+        <h2>Tip aleatorio</h2>
+        <p id="tip">Presiona el botón para un consejo</p>
+        <button id="btnTip">Mostrar tip</button>
+      </section>
+
+      <section class="card">
+        <h2>Añadir tarea</h2>
+        <input
+          type="text"
+          id="inputTarea"
+          placeholder="Escribe tu tarea aquí"
+        />
+        <button id="btnValidar">Añadir</button>
+        <p id="mensajeValidacion"></p>
+      </section>
+
+      <section class="card">
+        <h2>Cambiar tema</h2>
+        <button id="btnColor">Cambiar color de fondo</button>
+      </section>
+
+      <section class="card">
+        <h2>Tareas de la semana</h2>
+        <ul id="listaTareas"></ul>
+        <button id="btnGenerarLista">Mostrar días</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>Derechos reservados Cofradia Korotkevich</p>
+    </footer>
+  </body>
+</html>
+<script src="script.js"></script>
