@@ -1,20 +1,29 @@
-html, body {
+body.ready {
+  opacity: 1;
+}
+
+html,
+body {
   height: 100%;
+  padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
+  background-color: #0f172a;
 }
 
 main {
   flex: 1;
 }
 
-
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #0f172a, #1e293b, #334155); 
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0f172a;
+  background: linear-gradient(to right, #0f172a, #1e293b, #334155);
   color: #e0f2fe;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 header {
@@ -27,12 +36,11 @@ header {
 header h1 {
   margin: 0;
   font-size: 2rem;
-  color: #60a5fa; 
+  color: #60a5fa;
 }
 
-
-header button{
-    background: #2563eb;
+header button {
+  background: #2563eb;
   border: none;
   padding: 0.6rem 1rem;
   margin-top: 1rem;
@@ -42,8 +50,6 @@ header button{
   font-weight: bold;
   transition: background 0.3s ease;
 }
-
-
 
 #saludo {
   margin: 0.5rem 0;
@@ -57,7 +63,6 @@ main {
   gap: 1.5rem;
   padding: 2rem;
 }
-
 
 .card {
   background: rgba(30, 64, 175, 0.1);
@@ -90,7 +95,6 @@ main {
   background: #3b82f6;
 }
 
-
 input[type="text"] {
   width: 100%;
   padding: 0.5rem;
@@ -99,7 +103,6 @@ input[type="text"] {
   background-color: #1e293b;
   color: #e0f2fe;
 }
-
 
 ul {
   list-style-type: none;
@@ -118,8 +121,9 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.2rem;
-  background: linear-gradient(to right, #2563eb, #2563eb); 
+  /* padding: 1.2rem; */
+  /* background: linear-gradient(to right, #2563eb, #2563eb); */
+  background: #2563eb;
   border-top: 1px solid rgba(147, 197, 253, 0.15);
   color: #cbd5e1;
   font-size: 0.9rem;
@@ -140,5 +144,46 @@ footer {
     padding: 1rem;
   }
 }
+/* Transitions dark mode */
+body.ready,
+body.ready .card,
+body.ready header,
+body.ready footer {
+  transition: background 0.8s ease, color 0.8s ease;
+}
+body.ready .card{
+    transition: box-shadow 1s ease, color 1s ease;
 
+}
 
+/* Styles dark mode */
+body.dark-mode {
+  background: #1a1a1a; 
+  color: #2563eb;
+}
+
+body.dark-mode .card,
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #2a2a2a;
+  color: #635e5e;
+}
+body.dark-mode .card {
+  box-shadow: 0px 0px 15px #0f93f1, 0px 0px 15px #0f93f1 inset;
+  transition: box-shadow 1s ease, color 1s ease;
+}
+/* Styles button dark mode */
+#darkModeToggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: transparent;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+#darkModeToggle:hover {
+  transform: scale(1.1);
+}
