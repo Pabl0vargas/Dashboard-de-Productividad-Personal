@@ -42,7 +42,7 @@ header h1 {
 
 header button {
   background: #2563eb;
-
+}
 header button{
   background: #2563eb;
   border: none;
@@ -141,8 +141,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 1.2rem; */
-  /* background: linear-gradient(to right, #2563eb, #2563eb); */
   background: #2563eb;
   border-top: 1px solid rgba(147, 197, 253, 0.15);
   color: #cbd5e1;
@@ -186,7 +184,7 @@ body.dark-mode .card,
 body.dark-mode header,
 body.dark-mode footer {
   background-color: #2a2a2a;
-  color: #635e5e;
+  color: #938e8e;
 }
 body.dark-mode .card {
   box-shadow: 0px 0px 15px #0f93f1, 0px 0px 15px #0f93f1 inset;
@@ -195,7 +193,8 @@ body.dark-mode .card {
 /* Styles button dark mode */
 #darkModeToggle {
   position: fixed;
-  top: 1rem;
+  top: 3rem;
+  z-index: 10;
   right: 1rem;
   background-color: transparent;
   border: none;

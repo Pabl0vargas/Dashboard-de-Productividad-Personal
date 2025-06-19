@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   body.classList.add('ready');
 });
-=======
+
 // Sección para validar la entrada
 const btnValidar = document.getElementById("btnValidar");
 const inputTarea = document.getElementById("inputTarea");
