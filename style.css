@@ -39,7 +39,11 @@ header h1 {
   color: #60a5fa;
 }
 
+
 header button {
+  background: #2563eb;
+
+header button{
   background: #2563eb;
   border: none;
   padding: 0.6rem 1rem;
@@ -96,7 +100,7 @@ main {
 }
 
 input[type="text"] {
-  width: 100%;
+  width: 90%;
   padding: 0.5rem;
   border-radius: 10px;
   border: 1px solid #475569;
@@ -104,6 +108,22 @@ input[type="text"] {
   color: #e0f2fe;
 }
 
+/* Estilos para boton de validacion */
+#mensajeValidacion {
+  text-align: justify;
+  margin: 1%;
+  font-size: 12px;
+}
+
+#mensajeValidacion.error {
+  color: rgb(106, 191, 248);
+}
+
+#mensajeValidacion.ok {
+  color: rgb(37, 99, 235);
+}
+
+  
 ul {
   list-style-type: none;
   padding: 0;

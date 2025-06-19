@@ -24,7 +24,9 @@
       <section class="card">
         <h2>Contador de tareas</h2>
         <p>Tareas completadas: <span id="contador">0</span></p>
-        <button id="btnContador">Sumar</button>
+        <button id="restar">Restar</button>
+        <button id="resetear">Resetear</button>
+        <button id="sumar">Sumar</button>
       </section>
 
       <section class="card">
@@ -35,19 +37,20 @@
 
       <section class="card">
         <h2>Añadir tarea</h2>
+        <p id="mensajeValidacion"></p>
         <input
-          type="text"
-          id="inputTarea"
-          placeholder="Escribe tu tarea aquí"
+        type="text"
+        id="inputTarea"
+        placeholder="Escribe tu tarea aquí"
         />
         <button id="btnValidar">Añadir</button>
-        <p id="mensajeValidacion"></p>
       </section>
 
       <section class="card">
         <h2>Tareas de la semana</h2>
         <ul id="listaTareas"></ul>
-        <button id="btnGenerarLista">Mostrar días</button>
+        <button id="mostrarTareas">Mostrar tareas</button>
+        <button id="ocultarTareas">Ocultar tareas</button>
       </section>
     </main>
 
