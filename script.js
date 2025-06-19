@@ -134,7 +134,7 @@ function saludar() {
   let mensaje = "";
 
   if (hora < 12) {
-    mensaje = "!Buenos dias Princesitas!🌞 "
+    mensaje = "!Buenos dias Princesitas! "
   } else if (hora < 18) {
     mensaje = "!Buenos tardes Caballeros😎!"
   }
