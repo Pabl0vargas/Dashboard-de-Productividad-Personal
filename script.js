@@ -34,3 +34,40 @@ btnValidar.addEventListener("click", () => {
     mensaje.className = "ok";
   }
 });
+
+
+//Lista de elementos en una estructura repetidad
+const listaTareas = [
+  "Definir metas claras",
+  "Identificar prioridades semanales",
+  "Elegir una herramienta de organización",
+  "Planificar tu día la noche anterior",
+  "Priorizar tus tareas en orden de importancia",
+  "Eliminar distracciones",
+  "Tomar descansos regulares",
+  "Completar tareas pequeñas rápidamente",
+  "Revisar y reflexionar sobre tu día al final"
+];
+
+const btnMostrarTareas = document.getElementById('mostrarTareas');
+const btnOcultarTareas = document.getElementById('ocultarTareas');
+const tareas = document.getElementById('listaTareas');
+
+btnMostrarTareas.addEventListener("click", () => {
+  tareas.innerHTML = "";   //Limpio mi lista antes de generar los demas elementos
+
+  for(let i=0; i<listaTareas.length; i++) {
+    const li = document.createElement('li');
+    li.textContent = listaTareas[i];
+    tareas.appendChild(li);
+  }
+
+  tareas.style.display = "block";
+
+});
+
+btnOcultarTareas.addEventListener('click', () => {
+  tareas.style.display = "none";
+});
+
+
