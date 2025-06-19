@@ -36,6 +36,32 @@ btnValidar.addEventListener("click", () => {
 });
 
 
+// Boton para contabilizar tareas
+let cont = 0;
+
+const contador = document.getElementById("contador");
+const btnIncrementar = document.getElementById("sumar");
+const btnDecrementar = document.getElementById("restar");
+const btnResetear = document.getElementById("resetear");
+
+btnIncrementar.addEventListener("click", () => {
+  cont++;
+  contador.innerHTML = cont;
+});
+
+btnDecrementar.addEventListener("click", () =>   {
+  if(cont > 0){
+    cont--;
+    contador.innerHTML = cont;
+  }
+});
+
+btnResetear.addEventListener("click", () => {
+  cont = 0;
+  contador.innerHTML = cont;
+})
+
+
 //Lista de elementos en una estructura repetidad
 const listaTareas = [
   "Definir metas claras",
@@ -69,5 +95,6 @@ btnMostrarTareas.addEventListener("click", () => {
 btnOcultarTareas.addEventListener('click', () => {
   tareas.style.display = "none";
 });
+
 
 
