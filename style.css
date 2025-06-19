@@ -1,7 +1,9 @@
+/* Fade in the body once it's fully ready */
 body.ready {
   opacity: 1;
 }
 
+/* General layout and reset */
 html,
 body {
   height: 100%;
@@ -12,20 +14,23 @@ body {
   background-color: #0f172a;
 }
 
+/* Allow main to grow and fill remaining space */
 main {
   flex: 1;
 }
 
+/* Base styles for body */
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #0f172a;
   background: linear-gradient(to right, #0f172a, #1e293b, #334155);
   color: #e0f2fe;
-  opacity: 0;
+  opacity: 0; /* Initial fade for transition */
   transition: opacity 0.5s ease;
 }
 
+/* Header styles */
 header {
   padding: 1.5rem;
   background: rgba(30, 58, 138, 0.2);
@@ -33,21 +38,16 @@ header {
   border-bottom: 1px solid rgba(96, 165, 250, 0.3);
 }
 
+/* Main title in header */
 header h1 {
   margin: 0;
   font-size: 2rem;
   color: #60a5fa;
 }
 
-
+/* Header button styles */
 header button {
   background: #2563eb;
-
-}
-header button{
-  background: #2563eb;
-
-
   border: none;
   padding: 0.6rem 1rem;
   margin-top: 1rem;
@@ -58,12 +58,14 @@ header button{
   transition: background 0.3s ease;
 }
 
+/* Greeting text below header button */
 #saludo {
   margin: 0.5rem 0;
   font-style: italic;
   color: #93c5fd;
 }
 
+/* Main content grid layout */
 main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -71,6 +73,7 @@ main {
   padding: 2rem;
 }
 
+/* Card (widget) styles */
 .card {
   background: rgba(30, 64, 175, 0.1);
   border: 1px solid rgba(147, 197, 253, 0.15);
@@ -80,12 +83,14 @@ main {
   backdrop-filter: blur(8px);
 }
 
+/* Card titles */
 .card h2 {
   color: #3b82f6;
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
 }
 
+/* Buttons inside cards */
 .card button {
   background: #2563eb;
   border: none;
@@ -98,10 +103,12 @@ main {
   transition: background 0.3s ease;
 }
 
+/* Hover effect for card buttons */
 .card button:hover {
   background: #3b82f6;
 }
 
+/* Input field styles */
 input[type="text"] {
   width: 90%;
   padding: 0.5rem;
@@ -111,27 +118,30 @@ input[type="text"] {
   color: #e0f2fe;
 }
 
-/* Estilos para boton de validacion */
+/* Validation message styles */
 #mensajeValidacion {
   text-align: justify;
   margin: 1%;
   font-size: 12px;
 }
 
+/* Validation message for error */
 #mensajeValidacion.error {
   color: rgb(106, 191, 248);
 }
 
+/* Validation message for success */
 #mensajeValidacion.ok {
   color: rgb(37, 99, 235);
 }
 
-  
+/* Unordered list base styles */
 ul {
   list-style-type: none;
   padding: 0;
 }
 
+/* List item styles */
 ul li {
   background: #1e40af;
   margin: 5px 0;
@@ -140,6 +150,7 @@ ul li {
   color: #e0f2fe;
 }
 
+/* Footer styles */
 footer {
   display: flex;
   justify-content: center;
@@ -156,6 +167,7 @@ footer {
   text-align: center;
 }
 
+/* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
   header h1 {
     font-size: 1.5rem;
@@ -165,35 +177,41 @@ footer {
     padding: 1rem;
   }
 }
-/* Transitions dark mode */
+
+/* Smooth transitions for theme changes */
 body.ready,
 body.ready .card,
 body.ready header,
 body.ready footer {
   transition: background 0.8s ease, color 0.8s ease;
 }
-body.ready .card{
-    transition: box-shadow 1s ease, color 1s ease;
 
+/* Additional card transitions */
+body.ready .card {
+  transition: box-shadow 1s ease, color 1s ease;
 }
 
-/* Styles dark mode */
+/* Dark mode base styles */
 body.dark-mode {
   background: #1a1a1a; 
   color: #2563eb;
 }
 
+/* Dark mode card/header/footer background and text */
 body.dark-mode .card,
 body.dark-mode header,
 body.dark-mode footer {
   background-color: #2a2a2a;
   color: #938e8e;
 }
+
+/* Dark mode special effect for cards */
 body.dark-mode .card {
   box-shadow: 0px 0px 15px #0f93f1, 0px 0px 15px #0f93f1 inset;
   transition: box-shadow 1s ease, color 1s ease;
 }
-/* Styles button dark mode */
+
+/* Styles for dark mode toggle button */
 #darkModeToggle {
   position: fixed;
   top: 3rem;
@@ -206,6 +224,7 @@ body.dark-mode .card {
   transition: transform 0.5s ease;
 }
 
+/* Hover animation for toggle button */
 #darkModeToggle:hover {
   transform: scale(1.1);
 }
