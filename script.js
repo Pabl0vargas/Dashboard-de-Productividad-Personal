@@ -128,6 +128,22 @@ btnOcultarTareas.addEventListener('click', () => {
   tareas.style.display = "none";
 });
 
+// Botón de saludo condicional
+function saludar() {
+  const hora = new Date().getHours();
+  let mensaje = "";
 
+  if (hora < 12) {
+    mensaje = "!Buenos dias Princesitas! "
+  } else if (hora < 18) {
+    mensaje = "!Buenos tardes Caballeros😎!"
+  }
+  else {
+    mensaje = "Buenos noches Trans! 😴"
+  }
+
+  document.getElementById("saludoResultado").textContent = mensaje;
+
+}
 
 
