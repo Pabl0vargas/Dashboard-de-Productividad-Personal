@@ -17,3 +17,20 @@ btnTip.addEventListener("click", () => {
   const indice = Math.floor(Math.random() * tips.length);
   tipTexto.textContent = tips[indice];
 });
+
+// Sección para validar la entrada
+const btnValidar = document.getElementById("btnValidar");
+const inputTarea = document.getElementById("inputTarea");
+const mensaje = document.getElementById("mensajeValidacion");
+
+btnValidar.addEventListener("click", () => {
+  const valor = inputTarea.value.trim();
+
+  if (!valor) {
+    mensaje.textContent = "*Por favor escribe una tarea antes de añadir.";
+    mensaje.className = "error";
+  } else {
+    mensaje.textContent = "¡Tarea añadida correctamente.!";
+    mensaje.className = "ok";
+  }
+});
