@@ -44,7 +44,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Changes the icon based on the current mode
   const darkModeEnabled = localStorage.getItem('darkMode') === 'enabled';
-  if (darkModeEnabled) body.classList.add('dark-mode');
+  if (darkModeEnabled) {
+    body.classList.add('dark-mode');
+  }
+  
   setIcon(darkModeEnabled);
 
   toggleButton.addEventListener('click', function () {
