@@ -79,7 +79,7 @@ function showRecentTasks() {
     return;
   }
 
-  taskContainer.innerHTML = "<strong>Recent tasks (last 24h):</strong><ul>" +
+  taskContainer.innerHTML = "<strong>Tareas recientes (últimas 24h):</strong><ul>" +
     recentTasks.map(t => {
       const time = new Date(t.timestamp).toLocaleTimeString('es-CO', {
         hour: '2-digit', minute: '2-digit'
