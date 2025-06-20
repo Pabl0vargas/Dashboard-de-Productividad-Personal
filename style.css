@@ -234,3 +234,125 @@ body.dark-mode .card {
 #darkModeToggle:hover {
   transform: scale(1.1);
 }
+
+
+#ocultarRecientes {
+  display: none;
+}
+
+#tareaReciente{
+  display: none
+}
+
+/* Task list container */
+#listaTareas {
+  margin-top: 1rem;
+  padding: 0;
+  display: none;
+}
+
+/* Each task item - compact and clean */
+#listaTareas li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;                /* Ensures vertical centering */
+  padding: 0.4rem 0.7rem;
+  margin-bottom: 0.3rem;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover effect for item */
+#listaTareas li:hover {
+  transform: scale(1.08); /* Grows on hover */
+  background-color: #3b82f6; /* Highlighted background */
+  color: #f8fafc; /* Brighter text */
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.3); /* Soft glow */
+  z-index: 1;
+}
+
+/* Task text spans */
+#listaTareas li span {
+  flex-grow: 1;
+  padding-right: 0.5rem;
+  line-height: 1.2;                   /* Tighter vertical spacing */
+}
+
+/* Delete button - now vertically centered and smaller */
+.btnEliminar {
+  display: flex;                      /* Flex to center icon */
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 0.85rem;                 /* Smaller icon */
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  padding: 0;
+  margin: 0;
+}
+
+/* Hover effect for delete button */
+.btnEliminar:hover {
+  color: #f87171;
+  transform: scale(1.1);
+}
+
+/* Button group layout */
+.tareas-controles {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+/* Random Tip Text  */
+#tip {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3.2rem; /* Increased from 2.2rem */
+  color: #38bdf8;
+  text-align: center;
+  margin: 1rem 0;
+  letter-spacing: 1px;
+  animation: pulseTip 3s infinite ease-in-out;
+  transition: transform 0.3s ease, color 0.3s ease;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+/* Hover effect on tip */
+#tip:hover {
+  transform: scale(1.1) rotate(-1deg);
+  color: #0ea5e9;
+  text-shadow: 0 0 5px #38bdf8;
+  cursor: pointer;
+}
+
+/* Tip animation keyframes */
+@keyframes pulseTip {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  #tip {
+    font-size: 2rem;
+  }
+}
+

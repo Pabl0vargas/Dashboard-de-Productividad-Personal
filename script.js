@@ -37,17 +37,17 @@ document.addEventListener('DOMContentLoaded', function () {
   const toggleButton = document.getElementById('darkModeToggle');
   const body = document.body;
 
-  // Changes the icon based on the current mode
+  // Set icon depending on current mode
   const setIcon = (isDarkMode) => {
     toggleButton.textContent = isDarkMode ? '☀️' : '🌙';
   };
 
-  // Changes the icon based on the current mode
+  // Check and apply saved preference
   const darkModeEnabled = localStorage.getItem('darkMode') === 'enabled';
   if (darkModeEnabled) {
     body.classList.add('dark-mode');
   }
-  
+
   setIcon(darkModeEnabled);
 
   toggleButton.addEventListener('click', function () {
@@ -59,26 +59,26 @@ document.addEventListener('DOMContentLoaded', function () {
   body.classList.add('ready');
 });
 
-// ----- 3. Task Management Functions -----
+// ----- 3. Task Management -----
 
 // DOM references
 const btnValidar = document.getElementById("btnValidar");
 const inputTarea = document.getElementById("inputTarea");
 const mensaje = document.getElementById("mensajeValidacion");
 
-// Filter tasks created in the last 24 hours
+// Filter tasks from the last 24 hours
 function getRecentTasks() {
   const now = Date.now();
   return listaTareas.filter(t => now - t.timestamp < 86400000);
 }
 
-// Display recent tasks on the screen
+// Display recent tasks
 function showRecentTasks() {
   const recentTasks = getRecentTasks();
   const taskContainer = document.getElementById("tareaReciente");
 
   if (recentTasks.length === 0) {
-    taskContainer.style.display = "none";
+    taskContainer.innerHTML = "<em>No hay tareas recientes</em>";
     return;
   }
 
@@ -90,11 +90,9 @@ function showRecentTasks() {
       return `<li>${t.texto} <span style="color:gray;">(${time})</span></li>`;
     }).join("") +
     "</ul>";
-
-  taskContainer.style.display = "block";
 }
 
-// Handle task submission
+// Add task when clicking button
 btnValidar.addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -116,9 +114,8 @@ btnValidar.addEventListener("click", (event) => {
     localStorage.setItem("tareas", JSON.stringify(listaTareas));
     inputTarea.value = "";
 
-    showRecentTasks();
-    mostrarTodasLasTareas();
-    limpiarTareasViejas();
+    if (tareasVisibles) mostrarTodasLasTareas();
+    if (tareaReciente.style.display === "block") showRecentTasks();
 
     setTimeout(() => {
       mensaje.textContent = "";
@@ -127,30 +124,74 @@ btnValidar.addEventListener("click", (event) => {
   }
 });
 
-// ----- 4. Weekly Task Display -----
+// ----- 4. Weekly Task Display (with delete) -----
 const btnMostrarTareas = document.getElementById('mostrarTareas');
 const btnOcultarTareas = document.getElementById('ocultarTareas');
 const tareas = document.getElementById('listaTareas');
 
+let tareasVisibles = false; // Track visibility
+
+function eliminarTarea(index) {
+  listaTareas.splice(index, 1);
+  localStorage.setItem("tareas", JSON.stringify(listaTareas));
+  if (tareasVisibles) mostrarTodasLasTareas();
+  if (tareaReciente.style.display === "block") showRecentTasks();
+}
+
 function mostrarTodasLasTareas() {
   tareas.innerHTML = "";
 
-  listaTareas.forEach(t => {
+  listaTareas.forEach((t, index) => {
     const li = document.createElement('li');
-    li.textContent = t.texto;
+    li.innerHTML = `
+      ${t.texto}
+      <button class="btnEliminar" data-index="${index}">🗑️</button>
+    `;
     tareas.appendChild(li);
   });
 
-  tareas.style.display = "block";
+  tareas.style.display = tareasVisibles ? "block" : "none";
+
+  document.querySelectorAll(".btnEliminar").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const index = e.target.getAttribute("data-index");
+      eliminarTarea(index);
+    });
+  });
 }
 
-btnMostrarTareas.addEventListener("click", mostrarTodasLasTareas);
+btnMostrarTareas.addEventListener("click", () => {
+  tareasVisibles = true;
+  tareas.style.display = "block";
+});
 
-btnOcultarTareas.addEventListener('click', () => {
+btnOcultarTareas.addEventListener("click", () => {
+  tareasVisibles = false;
   tareas.style.display = "none";
 });
 
-// ----- 5. Task Counter -----
+// ----- 5. Toggle Recent Tasks Section -----
+const btnMostrarRecientes = document.getElementById("mostrarRecientes");
+const btnOcultarRecientes = document.getElementById("ocultarRecientes");
+const tareaReciente = document.getElementById("tareaReciente");
+
+// When the user clicks "Mostrar tareas recientes"
+btnMostrarRecientes.addEventListener("click", () => {
+  showRecentTasks(); // Render recent tasks
+  tareaReciente.style.display = "block"; // Show container
+  btnOcultarRecientes.style.display = "inline-block"; // Show "Ocultar" button
+  btnMostrarRecientes.style.display = "none"; // Hide "Mostrar" button
+});
+
+// When the user clicks "Ocultar tareas recientes"
+btnOcultarRecientes.addEventListener("click", () => {
+  tareaReciente.style.display = "none"; // Hide container
+  btnOcultarRecientes.style.display = "none"; // Hide "Ocultar" button
+  btnMostrarRecientes.style.display = "inline-block"; // Show "Mostrar" button
+});
+
+
+// ----- 6. Task Counter -----
 let cont = 0;
 
 const contador = document.getElementById("contador");
@@ -175,7 +216,7 @@ btnResetear.addEventListener("click", () => {
   contador.innerHTML = cont;
 });
 
-// ----- 6. Random Productivity Tip -----
+// ----- 7. Random Productivity Tip -----
 const tips = [
   "Organiza tu día en bloques de tiempo.",
   "Tómate pausas activas cada 45 minutos.",
@@ -195,6 +236,8 @@ btnTip.addEventListener("click", () => {
   tipTexto.textContent = tips[indice];
 });
 
+// ----- 8. On Page Load -----
 document.addEventListener("DOMContentLoaded", () => {
-  mostrarTareasRecientes();
+  mostrarTodasLasTareas(); // Do not auto-show recent tasks
 });
+

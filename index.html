@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard de Productividad Personal</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
     <link
       rel="icon"
       href="assets/freepik_assistant_1750260929874.png"
@@ -35,14 +37,19 @@
         />
         <button id="btnValidar">Añadir</button>
         <div id="tareaReciente" class="nuevaEntrada"></div>
+        <button id="mostrarRecientes">Mostrar tareas recientes</button>
+        <button id="ocultarRecientes">Ocultar tareas recientes</button>
+
       </section>
 
       <!-- Card: Weekly task list -->
       <section class="card">
         <h2>Tareas de la semana</h2>
         <ul id="listaTareas"></ul>
+        <div class="tareas-controles">
         <button id="mostrarTareas">Mostrar tareas</button>
         <button id="ocultarTareas">Ocultar tareas</button>
+        </div>
       </section>
 
       <!-- Card: Task counter -->
@@ -55,8 +62,7 @@
       </section>
 
       <!-- Card: Random productivity tip -->
-      <section class="card">
-        <h2>Tip aleatorio</h2>
+      <section class="card tip-card">
         <p id="tip">Presiona el botón para un consejo</p>
         <button id="btnTip">Mostrar tip</button>
       </section>
