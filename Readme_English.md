@@ -71,6 +71,4 @@ A color is randomly selected from a predefined array using conditionals and styl
 
 ##  Project preview
 
-!Dashboard preview  file:///C:/Users/Win10/OneDrive/Desktop/RIWI/HTML/CELULA%20RIWI/Dashboard-de-Productividad-Personal-develop/index.htm
-
-Translated with DeepL.com (free version)
+https://github.com/Pabl0vargas/Dashboard-de-Productividad-Personal
