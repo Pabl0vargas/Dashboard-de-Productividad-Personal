@@ -135,6 +135,12 @@ input[type="text"] {
   color: rgb(37, 99, 235);
 }
 
+/* new text aling */
+.nuevaEntrada {
+  display: none;
+  margin-top: 1rem;
+}
+
 /* Unordered list base styles */
 ul {
   list-style-type: none;
