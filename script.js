@@ -22,11 +22,11 @@ function saludar() {
   let mensaje = "";
 
   if (hora < 12) {
-    mensaje = "¡Buenos días, princesitas!";
+    mensaje = "¡Buenos días, princesita!";
   } else if (hora < 18) {
-    mensaje = "¡Buenas tardes, caballeros 😎!";
+    mensaje = "¡Buenas tardes, caballero 😎!";
   } else {
-    mensaje = "¡Buenas noches, personas trans! 😴";
+    mensaje = "¡Buenas noches, persona trans! 😴";
   }
 
   document.getElementById("saludoResultado").textContent = mensaje;
@@ -240,4 +240,11 @@ btnTip.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", () => {
   mostrarTodasLasTareas(); // Do not auto-show recent tasks
 });
+
+//Preloader
+
+window.addEventListener("load", () => {
+  document.body.classList.add("ready");
+});
+
 
